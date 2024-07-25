@@ -13,7 +13,6 @@ app.use(express.json());
 const HASURA_URL = process.env.HASURA_URL;
 const HASURA_ADMIN_SECRET = process.env.HASURA_ADMIN_SECRET;
 
-// Endpoint to get user account details
 app.get('/account/:id', async (req, res) => {
   const userId = req.params.id;
   const query = `
@@ -39,7 +38,6 @@ app.get('/account/:id', async (req, res) => {
   }
 });
 
-// Endpoint to perform a transaction (deposit or withdraw)
 app.post('/transaction', async (req, res) => {
   const { userId, amount } = req.body;
   const mutation = `
